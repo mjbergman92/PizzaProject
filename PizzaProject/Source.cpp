@@ -10,17 +10,20 @@ int main() {
 	int small = 0;
 	int bread = 0;
 	int drinks = 0;
+	char coupon = ' ';
 
-	cout << "# of Large Pizzas: ";
+	cout << "# of Large Pizzas:\t";
 	cin >> large;
-	cout << endl << "# of Medium Pizzas: ";
+	cout << endl << "# of Medium Pizzas:\t";
 	cin >> medium;
-	cout << endl << "# of Small Pizzas: ";
+	cout << endl << "# of Small Pizzas:\t";
 	cin >> small;
-	cout << endl << "# of Breadsticks: ";
+	cout << endl << "# of Breadsticks:\t";
 	cin >> bread;
-	cout << endl << "# of Drinks: ";
+	cout << endl << "# of Drinks:\t\t";
 	cin >> drinks;
+	cout << endl << "Coupon? (Y or N)\t";
+	cin >> coupon;
 
 	makeLine();
 
@@ -42,7 +45,7 @@ int main() {
 
 	if (pizzas > 0) {
 
-		cout << endl << fixed << setprecision(2) << pizzas << "Pizzas\t\t" << "+$" << spaces << p;
+		cout << endl << fixed << setprecision(2) << pizzas << "Pizzas:\t\t" << "+$" << spaces << p;
 
 	}
 
@@ -56,7 +59,7 @@ int main() {
 
 	if (bread > 0) {
 
-		cout << endl << fixed << setprecision(2) << bread << "Sticks\t\t" << "+$" << spaces << b;
+		cout << endl << fixed << setprecision(2) << bread << "Sticks:\t\t" << "+$" << spaces << b;
 
 	}
 
@@ -64,9 +67,74 @@ int main() {
 
 	for (int i = 0; i < roomNeeded - drinksTotal.length(); i++) {
 
-
+		spaces = spaces + " ";
 
 	}
+
+	if (drinks > 0) {
+
+		cout << endl << fixed << setprecision(2) << drinks << "Drinks:\t\t" << "+$" << spaces << d;
+
+	}
+
+	makeLine();
+
+	float subTotal = l + b + d;
+	string subTotalString = tostr(floor(subTotal));
+
+	if (coupon == 'y' || coupon == 'Y' || pizzas > 4) {
+
+		if (coupon == 'y' || coupon == 'Y') {
+
+			subTotal -= 2.00;
+
+			spaces = "";
+
+			for (int i = 0; i < roomNeeded - 1; i++) {
+
+				spaces = spaces + " ";
+
+			}
+
+			cout << endl << fixed << setprecision(2) << "Coupon:\t\t" << "-$" << spaces << 2.00;
+
+		}
+
+		if (pizzas > 4) {
+
+			float discount = subTotal * .1;
+			string discountString = tostr(floor(discount));
+			subTotal *= .9;
+
+			spaces = "";
+
+			for (int i = 0; i < roomNeeded - discountString.length(); i++) {
+
+				spaces = spaces + " ";
+
+			}
+
+			cout << endl << fixed << setprecision(2) << "10% Discount:\t\t" << 
+
+		}
+
+		makeLine();
+
+		subTotalString = tostr(floor(subTotal));
+
+		spaces = "";
+
+		for (int i = 0; i < roomNeeded - subTotalString.length(); i++) {
+
+			spaces = spaces + " ";
+
+		}
+
+		cout << endl << fixed << setprecision(2) << "Subtotal:\t\t" << " $" << spaces << subTotal;
+
+	}
+
+
 
 
 	system("pause");
@@ -77,7 +145,7 @@ int main() {
 
 void makeLine() {
 
-	cout << "-------------------------------";
+	cout << endl << "-------------------------------";
 
 }
 
