@@ -1,0 +1,15 @@
+﻿  Source.cpp
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(35): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(54): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(87): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(103): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(121): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(137): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(147): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(153): warning C4018: '<': signed/unsigned mismatch
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(161): warning C4305: '*=': truncation from 'double' to 'float'
+c:\users\mjbergman92\source\repos\pizzaproject\pizzaproject\source.cpp(169): warning C4018: '<': signed/unsigned mismatch
+  PizzaProject.vcxproj -> C:\Users\mjbergman92\source\repos\PizzaProject\Debug\PizzaProject.exe
