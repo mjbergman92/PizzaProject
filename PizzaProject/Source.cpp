@@ -5,6 +5,7 @@
 using namespace std;
 int main() {
 
+	//number of each item
 	int large = 0;
 	int medium = 0;
 	int small = 0;
@@ -12,6 +13,7 @@ int main() {
 	int drinks = 0;
 	char coupon = ' ';
 
+	//get inputs from user
 	cout << "# of Large Pizzas:\t";
 	cin >> large;
 	cout << "# of Medium Pizzas:\t";
@@ -25,8 +27,11 @@ int main() {
 	cout << "Coupon? (Y or N)\t";
 	cin >> coupon;
 
+	//start the receipt
 	cout << endl << "| ---------------------- |";
 
+	//calculate the amount of each section of items: pizza, breadsticks, and drinks
+	//also figure out the number in string form for display purposes
 	int pizzas = large + medium + small;
 	float p = (float)large * 10.00f + (float)medium * 8.00f + (float)small * 6.00f;
 	string pizzaTotal = to_string(floor(p));
@@ -37,12 +42,19 @@ int main() {
 	int roomNeeded = fmax(fmax(pizzaTotal.length(), breadTotal.length()), drinksTotal.length()) + 1;
 	string spaces = "";
 
+	/* whenever a for loop is used in the rest of the program,
+	 * it means that we are trying to figure out how many spaces
+	 * are needed to display the receipt for that line correctly
+	 * for alignment purposes.
+	 */
 	for (int i = 0; i < roomNeeded - pizzaTotal.length(); i++) {
 
 		spaces = spaces + " ";
 
 	}
 
+	//if the customer wants pizza, display it
+	//otherwise, just skip displaying pizzas on the receipt
 	if (pizzas > 0) {
 
 		cout << endl << fixed << setprecision(2) << "| " << pizzas << " Pizzas:\t" << "+$" << spaces << p << " |";
@@ -57,6 +69,8 @@ int main() {
 
 	}
 
+	//if the customer wants breadsticks, display it
+	//otherwise, just skip displaying breadsticks on the receipt
 	if (bread > 0) {
 
 		cout << endl << fixed << setprecision(2) << "| " << bread << " Sticks:\t" << "+$" << spaces << b << " |";
@@ -71,12 +85,15 @@ int main() {
 
 	}
 
+	//if the customer wants drinks, display it
+	//otherwise, just skip displaying drinks on the receipt
 	if (drinks > 0) {
 
 		cout << endl << fixed << setprecision(2) << "| " << drinks << " Drinks:\t" << "+$" << spaces << d << " |";
 
 	}
 
+	//go to the next section of the receipt
 	cout << endl << "| ---------------------- |";
 
 	float subTotal = p + b + d;
@@ -90,10 +107,15 @@ int main() {
 
 	}
 
+	//output the subtotal, no mater if their is coupons or discounts or not
 	cout << endl << fixed << setprecision(2) << "| " << "Subtotal:\t" << " $" << spaces << subTotal << " |";
 
+	//if there is coupons or discounts enter in a section of the receipt
+	//otherwise, move on to the tax section of the receipt
 	if (coupon == 'y' || coupon == 'Y' || pizzas > 4) {
 
+		//if there is a coupon for pizza, subtract $2 from the subtotal
+		//otherwise, move on to the discount
 		if (coupon == 'y' || coupon == 'Y') {
 
 			subTotal -= 2.00;
@@ -105,13 +127,15 @@ int main() {
 				spaces = spaces + " ";
 
 			}
-
+			
 			cout << endl << fixed << setprecision(2) << "| " << "Coupon:\t" << "-$" << spaces << 2.00 << " |";
 
 		}
 
+		//if there is more than 4 pizza, apply a 10% discount
 		if (pizzas > 4) {
 
+			//calculate discount before applying to subtotal
 			float discount = subTotal * .1f;
 			string discountString = to_string(floor(discount));
 			subTotal *= .9f;
@@ -128,6 +152,7 @@ int main() {
 
 		}
 
+		//recreate the end of the first section to move on to taxes
 		cout << endl << "| ---------------------- |";
 
 		subTotalString = to_string(floor(subTotal));
@@ -144,6 +169,7 @@ int main() {
 
 	}
 
+	//calculate the tax amount to be added and figure out the string for proper display purposes
 	float tax = subTotal * .06;
 
 	string taxString = to_string(floor(tax));
@@ -160,8 +186,10 @@ int main() {
 
 	subTotal *= 1.06;
 
+	//move on to total section, the last section
 	cout << endl << "| ---------------------- |";
 
+	//the subtotal from here on is refering to the actual total
 	subTotalString = to_string(floor(subTotal));
 
 	spaces = "";
@@ -172,10 +200,13 @@ int main() {
 
 	}
 
+	//again, the subtotal is refering to the actual total here in the program
 	cout << endl << fixed << setprecision(2) << "| " << "Total:\t" << " $" << spaces << subTotal << " |" << endl << endl;
 
+	//pause to the user can see the output
 	system("pause");
 
+	//end the program
 	return 0;
 
 }
